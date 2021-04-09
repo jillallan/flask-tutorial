@@ -1,6 +1,5 @@
 import functools
-# not needed as redifined as none and then string
-# from os import error
+
 
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
