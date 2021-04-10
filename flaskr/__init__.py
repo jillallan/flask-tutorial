@@ -2,11 +2,12 @@ import os
 
 from flask import Flask
 
+
 def create_app(test_config=None):
     '''Create a flask instance, set up configuration, registration and a database
 
     test_config -- test config settings
-    ''' 
+    '''
 
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
@@ -38,5 +39,9 @@ def create_app(test_config=None):
 
     from . import auth
     app.register_blueprint(auth.bp)
+
+    from . import blog
+    app.register_blueprint(blog.bp)
+    app.add_url_rule('/', endpoint='index')
 
     return app
